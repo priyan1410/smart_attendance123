@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 40px 20px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+            /* 3D Button Effect */
+            box-shadow: 0px 3px 0px #0056b3;
+            transform: translateY(0);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            /* Apply 3D effect on hover */
+            box-shadow: 0px 1px 0px #0056b3;
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <h1>Welcome to the Attendance System</h1>
+        <button type="submit" name="user_type" value="faculty">Faculty</button>
+        <button type="submit" name="user_type" value="student">Student</button>
+    </form>
+</body>
+</html>
