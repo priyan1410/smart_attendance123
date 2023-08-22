@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Students</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student List</h2>
+    <table>
+        <tr>
+            <th>Reg No</th>
+            <th>Name</th>
+            <th>Tamil</th>
+            <th>English</th>
+            <!-- Add more headers if needed -->
+        </tr>
+        {% for student in students %}
+            {% for r in res %}
+                <tr>
+                    <td>{{ student[0] }}</td>
+                    <td>{{ student[1] }}</td>
+                    <td>
+                        {% if r[0] != 0 %}
+                            {{ "{:.2f}".format((student[2] / r[0]) * 100) }}%
+                        {% else %}
+                            Class Not Started Yet
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if r[1] != 0 %}
+                            {{ "{:.2f}".format((student[3] / r[1]) * 100) }}%
+                        {% else %}
+                            Class Not Started Yet
+                        {% endif %}
+                    </td>
+                    <!-- Add more columns if needed -->
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>

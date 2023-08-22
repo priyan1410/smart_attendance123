@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #444;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .password-container {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #ffffff;
+            /* 3D Button Effect */
+            box-shadow: 0px 3px 0px #0056b3;
+            transform: translateY(0);
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            /* Apply 3D effect on hover */
+            box-shadow: 0px 1px 0px #0056b3;
+            transform: translateY(2px);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <form method="post" action="/faculty_login">
+        <h1>Faculty Login</h1>
+        <label for="word">Password:</label>
+        <div class="password-container">
+            <input type="password" id="word" name="word">
+            <i class="fas fa-eye password-toggle" onclick="togglePasswordVisibility()"></i>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+    <script>
+        // Your JavaScript code here
+        function togglePasswordVisibility() {
+            var passwordInput = document.getElementById("word");
+            var eyeIcon = document.querySelector(".password-toggle");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+    </script>
+</body>
+</html>

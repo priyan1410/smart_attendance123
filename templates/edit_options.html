@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 12px 25px;
+            width: 100%; /* Button width set to 100% */
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #ffffff;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 3px 0px #0056b3;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            box-shadow: 0px 1px 0px #0056b3;
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/edit_options">
+        <button type="submit" name="edit_option" value="insert">Insert Student</button>
+        <button type="submit" name="edit_option" value="update">Update Student</button>
+        <button type="submit" name="edit_option" value="view_all">View All Students</button>
+        <button type="submit" name="edit_option" value="delete">Delete Student</button>
+    </form>
+</body>
+</html>

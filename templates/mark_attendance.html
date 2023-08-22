@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mark Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+            width: 500px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #444;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        label {
+            flex: 1;
+            font-weight: bold;
+            padding-right: 10px;
+            vertical-align: middle;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        .radio-label {
+            flex: 1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            color: #444;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px; /* Added margin */
+        }
+
+        .radio-label:hover {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        input[type="radio"]:checked + .radio-label {
+            background-color: #28a745;
+            color: #ffffff;
+        }
+
+        button {
+            padding: 8px 20px;
+            font-size: 14px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/mark_attendance">
+        <h2>Attendance for {{ subject|capitalize }}</h2>
+        <ul>
+            {% for student in students %}
+                <li>
+                    <label>{{ student[0] }}</label>
+                    <input type="radio" name="{{ student[0] }}" value="present" id="{{ student[0] }}-present">
+                    <label class="radio-label" for="{{ student[0] }}-present">Present</label>
+                    <input type="radio" name="{{ student[0] }}" value="absent" id="{{ student[0] }}-absent">
+                    <label class="radio-label" for="{{ student[0] }}-absent">Absent</label>
+                </li>
+            {% endfor %}
+        </ul>
+        <input type="hidden" name="subject" value="{{ subject }}">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+</html>
